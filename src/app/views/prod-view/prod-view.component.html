@@ -1,0 +1,38 @@
+<div style="height: 25px; left: 20px;">
+
+</div>
+<div class="container" style="height: 20px;">
+
+  <table class="table table-hover" *ngIf="carregarLoading; else carregando">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOME</th>
+        <th scope="col">PRECO</th>
+        <th scope="col">ALTERAR</th>
+        <th scope="col">EXCLUIR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of produtos">
+        <td>{{item.id}}</td>
+        <td>{{item.nome}}</td>
+        <td>{{item.preco}}</td>
+        <td><button type="button" class="btn btn-secondary" (click)="editar(item.id)">Alterar</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="excluirItem(item.id)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #carregando>
+  <div id="preloader">
+    <div class="inner">
+      <div class="bolas">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
